@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<title>Lab 6</title>
+
+</head>
+<body>
+<h1>Zadanie 1</h1>
+<table>
+    <tr>
+        <th>
+            <script>
+                for(var i = 1; i<=10; i++)
+                {
+                    document.write("<th>" + i + "</th>");
+                }
+            </script>
+        </th>
+        <script>
+            for(var i=0; i<=10; i++)
+            {
+                document.write("<tr>");
+                document.write("<th>" + i + "</th>");
+                for (var j = 1; j<=10; j++)
+                {
+                    document.write("<td>" + (i*j) + "</td>");
+                }
+                document.write("</tr>")
+            }
+        </script>
+    </tr>
+</table>
+<br>
+<h1>Zadanie 2</h1>
+<form onsubmit="generuj(); return false;">
+    <label for="liczbaRekordow">Liczba rekordów:</label>
+    <input type="number" id="liczbaRekordow" name="liczbaRekordow" min="1" max="20" required>
+    <input type="submit" value="Generuj">
+</form>
+<pre id="wyjscie"></pre>
+
+<script>
+    const imiona = ["Kacper", "Wojciech", "Jan", "Maciej", "Jakub", "Hubert", "Michał", "Sebastian", "Piotr", "Bogusław", "Przemysław", "Tomasz", "Łukasz"]
+    const nazwiska = ["Babiarz", "Lesiczka", "Dynowski", "Kowalski", "Dobek", "Łania", "Mazur", "Kazienko", "Grabarz", "Jaroszczak", "Bęben", "Waz", "Wiatr"]
+    function generuj() 
+        {
+        const liczbaRekordow = document.getElementById("liczbaRekordow").value;
+        const wyjscie = document.getElementById("wyjscie");
+        const obiekt = [];
+        for (let i = 0; i < liczbaRekordow; i++) 
+        {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const surname = surnames[Math.floor(Math.random() * surnames.length)];
+            const age = Math.floor(Math.random() * (80 - 18)) + 18;
+            const phone = Math.floor(Math.random() * (8000000 - 5000000)) + 5000000;
+            const osoba = 
+            {
+                name: name,
+                surname: surname,
+                age: age,
+                phone: phone
+            };
+            obiekt.push(osoba);
+        }
+        wyjscie.textContent = JSON.stringify(obiekt, null, 2);
+        console.log(JSON.stringify(obiekt, null, 2));
+    }
+</script>
+</body>
+</html>
