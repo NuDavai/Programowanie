@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kolokwium</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #dfe3ee;
+        }
+        
+        #header {
+            -webkit-text-stroke: 0.5px #bcbfc7;
+            color: white;
+            display: flex;
+            align-items: baseline;
+            background-color: #3b5998;
+            width: 100%;
+            padding: 15px;
+            border: 1px solid black;
+        }
+        
+        .box {
+            background-color: #274a96;
+            padding: 5px;
+            border: 1px solid rgb(4, 27, 102);
+            text-align: center;
+            float: right;
+            margin: 4px;
+            border-radius: 5px;
+            -webkit-text-stroke: 0.2px #bcbfc7
+        }
+        
+        #imieINazwisko {
+            background-color: #274a96;
+            padding: 5px;
+            border: 1px solid rgb(4, 27, 102);
+            text-align: center;
+            margin: 4px;
+            border-radius: 5px;
+            margin-left: 15px;
+            -webkit-text-stroke: 0.2px #bcbfc7
+        }
+        
+        .zawartosc {
+            background-color: #3b5998;
+            text-align: center;
+            padding: 15px;
+            max-width: 588px;
+            margin: auto;
+            border-radius: 5px;
+            -webkit-text-stroke: 0.5px #bcbfc7;
+            color: white;
+            border: 1px solid black;
+        }
+        
+        #image1 {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        #image2 {
+            max-width: 100%;
+            height: auto;
+            display: none;
+        }
+        
+        a:link {
+            color: #dfe3ee;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        
+        a:visited {
+            color: #dfe3ee;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: white;
+            background-color: transparent;
+        }
+        
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%
+        }
+        
+        .sticky+.zawartosc {
+            padding-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h1><a href="index.html">Strona główna</a></h1>
+        <p id="imieINazwisko"><a href="imieINazwisko.html">Michał Mazur</a></p>
+        <div class="box">
+            <a href="logowanie.html">Logowanie</a>
+        </div>
+        <div class="box">
+            <a href="rejestracja.html">Rejestracja</a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="zawartosc">
+        <h1>Witamy w serwisie</h1>
+        <br>
+        <img src="geralt1.jpg" id="image1" onclick="show1()">
+        <img src="geralt2.jpg" id="image2" onclick="show2()">
+    </div>
+
+    <script>
+        function show1() {
+            document.getElementById('image2')
+                .style.display = "block";
+            document.getElementById('image1')
+                .style.display = "none";
+        }
+
+        function show2() {
+            document.getElementById('image1')
+                .style.display = "block";
+            document.getElementById('image2')
+                .style.display = "none";
+        }
+
+        window.onscroll = function() {
+            headerScroll()
+        };
+        var header = document.getElementById("header");
+        var sticky = header.offsetTop;
+
+        function headerScroll() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
